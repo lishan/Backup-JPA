@@ -1,5 +1,7 @@
 package org.sap.tia;
 
+import java.util.List;
+
 /**
  * @author Fred
  * @since Aug 22th
@@ -16,8 +18,12 @@ public interface Operations {
      * @param status   task status, including RUNNING,PENDING,SUCCESS,FAILED
      * @return write true or false
      */
-    @Deprecated
     boolean writeTestInfo(String taskName, String taskId, String status);
+
+    /**
+     * Contains error message
+     */
+    boolean writeTestInfo(String taskName, String taskId, String status, String msg);
 
     /**
      * Contains startTime and modifyTime
@@ -29,6 +35,9 @@ public interface Operations {
      */
     boolean writeTestInfo(String taskName, String taskId, String status, Long startTime, Long modifyTime, String msg);
 
-    @Deprecated
-    boolean writeLogs(String machineName, String taskName, String version, String status, String author, String platform);
+
+    boolean changeStressNumber(String taskId, int stress);
+
+    List<String> fetchAllTests(String taskId);
+
 }

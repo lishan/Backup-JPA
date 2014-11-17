@@ -20,6 +20,18 @@ public class MysqlOperationsTest {
     @Test
     public void test_write_logs_with_time() {
         Operations operations = new MysqlOperations();
-        operations.writeTestInfo("configure", "123", "SUCCESS", 1411352733L, 1411352733L,"message");
+        operations.writeTestInfo("configure", "123", "SUCCESS","message");
+    }
+
+    @Test
+    public void test_change_stress(){
+        Operations operations = new MysqlOperations();
+        operations.changeStressNumber("1414841735468",10);
+    }
+
+    @Test
+    public void test_get_tests(){
+        Operations operations = new MysqlOperations();
+        System.out.println(operations.fetchAllTests("1411087195179"));
     }
 }

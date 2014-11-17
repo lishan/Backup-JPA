@@ -14,6 +14,8 @@ import java.io.Serializable;
 @NamedQueries({
         @NamedQuery(name = "TestInfo.findByIdAndName",
                 query = "SELECT c FROM TestInfo c WHERE c.taskName = :name and c.taskId = :id"),
+        @NamedQuery(name = "TestInfo.loadAllByIdAndName",
+                query =  "SELECT c FROM TestInfo c WHERE c.taskId = :id and c.status = :status")
 })
 public class TestInfo implements Serializable {
     @Id
